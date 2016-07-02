@@ -1,1 +1,6 @@
-.idea
+/.idea
+.gradle/
+build/
+bu
+budget-backend.iml
+
