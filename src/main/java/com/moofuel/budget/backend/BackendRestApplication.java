@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Created by Дмитрий on 02.07.2016.
+ * Created by MoOFueL on 02.07.2016.
  */
 @SpringBootApplication
 public class BackendRestApplication {

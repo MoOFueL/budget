@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Created by Дмитрий on 02.07.2016.
+ * Created by MoOFueL on 02.07.2016.
  */
 @RestController
 @RequestMapping(path = "/test", produces = "application/json")

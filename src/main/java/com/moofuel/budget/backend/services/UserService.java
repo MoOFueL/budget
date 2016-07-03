@@ -3,11 +3,10 @@ package com.moofuel.budget.backend.services;
 import com.moofuel.budget.backend.domain.entities.User;
 import com.moofuel.budget.backend.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by Дмитрий on 02.07.2016.
+ * Created by MoOFueL on 02.07.2016.
  */
 @Service
 public class UserService {
