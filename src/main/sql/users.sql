@@ -10,7 +10,8 @@ CREATE TABLE users (
   PRIMARY KEY (id)
 );
 
-ALTER TABLE users OWNER TO backend;
+ALTER TABLE users
+  OWNER TO backend;
 
 COMMENT ON TABLE users IS 'Пользователи';
 COMMENT ON COLUMN users.id IS 'Идентификатор пользователя';
