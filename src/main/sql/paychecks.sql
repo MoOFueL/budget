@@ -10,7 +10,8 @@ CREATE TABLE paychecks (
   PRIMARY KEY (id)
 );
 
-ALTER TABLE users OWNER TO backend;
+ALTER TABLE paychecks
+  OWNER TO backend;
 
 COMMENT ON TABLE paychecks IS 'Чеки';
 COMMENT ON COLUMN paychecks.id IS 'Идентификатор чека';

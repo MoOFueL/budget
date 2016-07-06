@@ -23,7 +23,7 @@ public class PayCheckController {
     private PayCheckService payCheckService;
 
 
-    @RequestMapping(path = "/user/{userId}", method = RequestMethod.GET)
+    @RequestMapping(path = "/users/{userId}", method = RequestMethod.GET)
     private List<PayCheck> findAllChecksByUserId(@PathVariable("userId") Integer userId) {
         return payCheckService.findByuserId(userId);
     }
