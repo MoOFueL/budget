@@ -17,10 +17,4 @@ public class UserService {
     public User findById(Integer userId) {
         return userRepository.findById(userId);
     }
-
-    public User saveForName(String fio) {
-        User user = new User();
-        user.setFio(fio);
-        return userRepository.save(user);
-    }
 }
