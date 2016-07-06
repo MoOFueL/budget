@@ -14,13 +14,13 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public User findByName(String name) {
-        return userRepository.findByName(name);
+    public User findById(Integer userId) {
+        return userRepository.findById(userId);
     }
 
-    public User saveForName(String name) {
+    public User saveForName(String fio) {
         User user = new User();
-        user.setName(name);
+        user.setFio(fio);
         return userRepository.save(user);
     }
 }

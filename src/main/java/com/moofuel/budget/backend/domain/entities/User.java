@@ -1,6 +1,9 @@
 package com.moofuel.budget.backend.domain.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.Date;
 
 /**
  * Created by MoOFueL on 02.07.2016.
@@ -14,25 +17,88 @@ public class User {
     @Column(name = "id", updatable = false)
     private Integer id;
 
-    private String name;
+    @Column(name = "created_at")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdAt;
+
+    @PrePersist
+    private void prePersist() {
+        createdAt = new Date();
+    }
+
+    @NotNull
+    @Size(max = 256)
+    @Column(name = "fio")
+    private String fio;
+
+    @Size(max = 512)
+    @Column(name = "additional_info")
+    private String additonalInfo;
+
+    @Column(name = "is_active")
+    private boolean active;
+
+    @Column(name = "synchronized_at")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date synchronizedAt;
 
     public Integer getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getFio() {
+        return fio;
+    }
+
+    public void setFio(String fio) {
+        this.fio = fio;
+    }
+
+    public String getAdditonalInfo() {
+        return additonalInfo;
+    }
+
+    public void setAdditonalInfo(String additonalInfo) {
+        this.additonalInfo = additonalInfo;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public Date getSynchronizedAt() {
+        return synchronizedAt;
+    }
+
+    public void setSynchronizedAt(Date synchronizedAt) {
+        this.synchronizedAt = synchronizedAt;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", createdAt=" + createdAt +
+                ", fio='" + fio + '\'' +
+                ", additonalInfo='" + additonalInfo + '\'' +
+                ", active=" + active +
+                ", synchronizedAt=" + synchronizedAt +
                 '}';
     }
 }
