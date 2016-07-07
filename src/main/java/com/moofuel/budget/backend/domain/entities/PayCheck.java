@@ -4,8 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Arrays;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by MoOFueL on 02.07.2016.
@@ -33,10 +34,6 @@ public class PayCheck {
     @Column(name = "user_id")
     private Integer userId;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id", insertable = false, updatable = false)
-    private User user;
-
     @NotNull
     @Column(name = "name")
     private String name;
@@ -47,9 +44,11 @@ public class PayCheck {
     @Column(name = "sum")
     private Integer sum;
 
-    @NotNull
-    @Column(name = "photo")
-    private byte[] photo;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "paychecks_files",
+            joinColumns = {@JoinColumn(name = "paycheck_id")},
+            inverseJoinColumns = @JoinColumn(name = "file_id"))
+    private Set<File> images = new HashSet<>(0);
 
     public Integer getId() {
         return id;
@@ -73,14 +72,6 @@ public class PayCheck {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public String getName() {
@@ -107,12 +98,12 @@ public class PayCheck {
         this.sum = sum;
     }
 
-    public byte[] getPhoto() {
-        return photo;
+    public Set<File> getImages() {
+        return images;
     }
 
-    public void setPhoto(byte[] photo) {
-        this.photo = photo;
+    public void setImages(Set<File> images) {
+        this.images = images;
     }
 
     @Override
@@ -121,11 +112,10 @@ public class PayCheck {
                 "id=" + id +
                 ", createdAt=" + createdAt +
                 ", userId=" + userId +
-                ", user=" + user +
                 ", name='" + name + '\'' +
                 ", additionalInfo='" + additionalInfo + '\'' +
                 ", sum=" + sum +
-                ", photo=" + Arrays.toString(photo) +
+                ", images=" + images +
                 '}';
     }
 }

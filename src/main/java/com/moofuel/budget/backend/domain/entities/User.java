@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by MoOFueL on 02.07.2016.
@@ -41,6 +43,12 @@ public class User {
     @Column(name = "synchronized_at")
     @Temporal(TemporalType.TIMESTAMP)
     private Date synchronizedAt;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "users_paychecks",
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = @JoinColumn(name = "paycheck_id"))
+    private Set<PayCheck> payChecks = new HashSet<>(0);
 
     public Integer getId() {
         return id;
@@ -90,6 +98,14 @@ public class User {
         this.synchronizedAt = synchronizedAt;
     }
 
+    public Set<PayCheck> getPayChecks() {
+        return payChecks;
+    }
+
+    public void setPayChecks(Set<PayCheck> payChecks) {
+        this.payChecks = payChecks;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -99,6 +115,7 @@ public class User {
                 ", additonalInfo='" + additonalInfo + '\'' +
                 ", active=" + active +
                 ", synchronizedAt=" + synchronizedAt +
+                ", payChecks=" + payChecks +
                 '}';
     }
 }
