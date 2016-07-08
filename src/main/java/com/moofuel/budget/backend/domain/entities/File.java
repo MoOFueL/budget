@@ -27,12 +27,12 @@ public class File {
         createdAt = new Date();
     }
 
-    @Column(name = "image")
-    private byte[] image;
-
     @Size(max = 256)
     @Column(name = "name")
     private String name;
+
+    @Column(name = "image")
+    private byte[] image;
 
     public Integer getId() {
         return id;

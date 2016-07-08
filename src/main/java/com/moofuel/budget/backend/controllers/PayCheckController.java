@@ -3,11 +3,9 @@ package com.moofuel.budget.backend.controllers;
 import com.moofuel.budget.backend.domain.entities.PayCheck;
 import com.moofuel.budget.backend.services.PayCheckService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -25,6 +23,11 @@ public class PayCheckController {
 
     @RequestMapping(path = "/users/{userId}", method = RequestMethod.GET)
     private List<PayCheck> findAllChecksByUserId(@PathVariable("userId") Integer userId) {
-        return payCheckService.findByuserId(userId);
+        return payCheckService.findByUserId(userId);
+    }
+
+    @RequestMapping(path = "/users/{userId}", method = RequestMethod.POST)
+    private PayCheck createPaycheck(@RequestBody @Valid PayCheck payCheck) {
+        return payCheckService.createNewPaycheck(payCheck);
     }
 }

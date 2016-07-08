@@ -1,7 +1,5 @@
 package com.moofuel.budget.backend.domain.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -30,7 +28,6 @@ public class PayCheck {
         createdAt = new Date();
     }
 
-    @JsonIgnore
     @Column(name = "user_id")
     private Integer userId;
 
@@ -41,6 +38,7 @@ public class PayCheck {
     @Column(name = "additional_info")
     private String additionalInfo;
 
+    @NotNull
     @Column(name = "sum")
     private Integer sum;
 
