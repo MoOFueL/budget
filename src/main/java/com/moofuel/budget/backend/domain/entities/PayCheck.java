@@ -28,9 +28,6 @@ public class PayCheck {
         createdAt = new Date();
     }
 
-    @Column(name = "user_id")
-    private Integer userId;
-
     @NotNull
     @Column(name = "name")
     private String name;
@@ -62,14 +59,6 @@ public class PayCheck {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
     }
 
     public String getName() {
@@ -109,7 +98,6 @@ public class PayCheck {
         return "PayCheck{" +
                 "id=" + id +
                 ", createdAt=" + createdAt +
-                ", userId=" + userId +
                 ", name='" + name + '\'' +
                 ", additionalInfo='" + additionalInfo + '\'' +
                 ", sum=" + sum +
