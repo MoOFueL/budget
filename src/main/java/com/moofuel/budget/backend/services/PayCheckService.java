@@ -6,8 +6,6 @@ import com.moofuel.budget.backend.repositories.PayCheckRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 /**
  * Created by MoOFueL on 07.07.2016.
  */
@@ -20,8 +18,8 @@ public class PayCheckService {
     @Autowired
     private FileService fileService;
 
-    public List<PayCheck> findByUserId(Integer userId) {
-        return payCheckRepository.findByUserId(userId);
+    public PayCheck findById(Integer userId) {
+        return payCheckRepository.findById(userId);
     }
 
     public PayCheck createNewPaycheck(PayCheck payCheck) {

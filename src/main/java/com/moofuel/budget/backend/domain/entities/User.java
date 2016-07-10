@@ -46,8 +46,8 @@ public class User {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_paychecks",
-            joinColumns = {@JoinColumn(name = "user_id")},
-            inverseJoinColumns = @JoinColumn(name = "paycheck_id"))
+            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+            inverseJoinColumns = @JoinColumn(name = "paycheck_id", referencedColumnName = "id"))
     private Set<PayCheck> payChecks = new HashSet<>(0);
 
     public Integer getId() {

@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 
 /**
@@ -22,8 +21,8 @@ public class PayCheckController {
 
 
     @RequestMapping(path = "/users/{userId}", method = RequestMethod.GET)
-    private List<PayCheck> findAllChecksByUserId(@PathVariable("userId") Integer userId) {
-        return payCheckService.findByUserId(userId);
+    private PayCheck findAllChecksByUserId(@PathVariable("userId") Integer userId) {
+        return payCheckService.findById(userId);
     }
 
     @RequestMapping(path = "/users/{userId}", method = RequestMethod.POST)

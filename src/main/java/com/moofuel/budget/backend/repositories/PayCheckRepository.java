@@ -9,9 +9,7 @@ import java.util.List;
  */
 public interface PayCheckRepository extends AbstractRepository<PayCheck> {
 
-    List<PayCheck> findByUserId(Integer userId);
-
-    List<PayCheck> findByUserIdAndNameAndSum(Integer userId, String name, Integer sum);
+    List<PayCheck> findByNameAndSum(Integer userId, String name, Integer sum);
 
     PayCheck findById(Integer id);
 }
