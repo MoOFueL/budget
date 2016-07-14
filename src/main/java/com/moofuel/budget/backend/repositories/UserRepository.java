@@ -8,4 +8,6 @@ import com.moofuel.budget.backend.domain.entities.User;
 public interface UserRepository extends AbstractRepository<User>{
 
     User findById(Integer id);
+
+    User findByFioAndPassword(String fio, String password);
 }

@@ -35,7 +35,7 @@ public class User {
 
     @Size(max = 512)
     @Column(name = "additional_info")
-    private String additonalInfo;
+    private String additionalInfo;
 
     @Column(name = "is_active")
     private boolean active;
@@ -74,15 +74,15 @@ public class User {
         this.fio = fio;
     }
 
-    public String getAdditonalInfo() {
-        return additonalInfo;
+    public String getAdditionalInfo() {
+        return additionalInfo;
     }
 
-    public void setAdditonalInfo(String additonalInfo) {
-        this.additonalInfo = additonalInfo;
+    public void setAdditionalInfo(String additionalInfo) {
+        this.additionalInfo = additionalInfo;
     }
 
-    public boolean isActive() {
+    public boolean getActive() {
         return active;
     }
 
@@ -112,7 +112,7 @@ public class User {
                 "id=" + id +
                 ", createdAt=" + createdAt +
                 ", fio='" + fio + '\'' +
-                ", additonalInfo='" + additonalInfo + '\'' +
+                ", additionalInfo='" + additionalInfo + '\'' +
                 ", active=" + active +
                 ", synchronizedAt=" + synchronizedAt +
                 ", payChecks=" + payChecks +
