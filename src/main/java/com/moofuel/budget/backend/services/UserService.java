@@ -25,7 +25,7 @@ public class UserService {
 
         final String fio = authObject.getFio();
         final String password = authObject.getPassword();
-        User user = userRepository.findByFioAndPassword(fio, password);
+        User user = userRepository.findByFio(fio);
         if (user == null) {
             throw new NotFoundException("User not found!");
         }

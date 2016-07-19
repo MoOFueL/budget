@@ -9,5 +9,5 @@ public interface UserRepository extends AbstractRepository<User>{
 
     User findById(Integer id);
 
-    User findByFioAndPassword(String fio, String password);
+    User findByFio(String fio);
 }
