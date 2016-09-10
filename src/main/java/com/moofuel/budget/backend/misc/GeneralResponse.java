@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by MoOFueL on 14.07.2016.
+ * Author is D.Ivanov, created on 14.07.2016.
  */
 public class GeneralResponse {
 

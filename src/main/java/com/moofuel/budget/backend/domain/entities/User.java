@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by MoOFueL on 02.07.2016.
+ * Author is D.Ivanov, created on 02.07.2016.
  */
 @Entity
 @Table(name = "users")
@@ -33,6 +33,11 @@ public class User {
     @Column(name = "fio")
     private String fio;
 
+    @NotNull
+    @Size(max = 256)
+    @Column(name = "password")
+    private String password;
+
     @Size(max = 512)
     @Column(name = "additional_info")
     private String additionalInfo;
@@ -44,10 +49,8 @@ public class User {
     @Temporal(TemporalType.TIMESTAMP)
     private Date synchronizedAt;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "users_paychecks",
-            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
-            inverseJoinColumns = @JoinColumn(name = "paycheck_id", referencedColumnName = "id"))
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
     private Set<PayCheck> payChecks = new HashSet<>(0);
 
     public Integer getId() {
@@ -72,6 +75,14 @@ public class User {
 
     public void setFio(String fio) {
         this.fio = fio;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getAdditionalInfo() {

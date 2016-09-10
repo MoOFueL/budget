@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Date;
 
 /**
- * Created by MoOFueL on 08.07.2016.
+ * Author is D.Ivanov, created on 08.07.2016.
  */
 @Entity
 @Table(name = "files")
@@ -71,8 +71,8 @@ public class File {
         return "File{" +
                 "id=" + id +
                 ", createdAt=" + createdAt +
-                ", image=" + Arrays.toString(image) +
                 ", name='" + name + '\'' +
+                ", image=" + Arrays.toString(image) +
                 '}';
     }
 }

@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS paychecks_files;
+DROP TABLE IF EXISTS files;
+DROP TABLE IF EXISTS users_paychecks;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS paychecks;

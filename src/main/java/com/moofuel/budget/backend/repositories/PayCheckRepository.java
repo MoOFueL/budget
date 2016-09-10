@@ -5,11 +5,9 @@ import com.moofuel.budget.backend.domain.entities.PayCheck;
 import java.util.List;
 
 /**
- * Created by MoOFueL on 07.07.2016.
+ * Author is D.Ivanov, created on 07.07.2016.
  */
 public interface PayCheckRepository extends AbstractRepository<PayCheck> {
 
-    List<PayCheck> findByNameAndSum(Integer userId, String name, Integer sum);
-
-    PayCheck findById(Integer id);
+    List<PayCheck> findByUserId(Integer userId);
 }

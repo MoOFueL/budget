@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by MoOFueL on 02.07.2016.
+ * Author is D.Ivanov, created on 02.07.2016.
  */
 @Entity
 @Table(name = "paychecks")
@@ -27,6 +27,10 @@ public class PayCheck {
     private void prePersist() {
         createdAt = new Date();
     }
+
+    @NotNull
+    @Column(name = "user_id")
+    private Integer userId;
 
     @NotNull
     @Column(name = "name")
@@ -51,6 +55,14 @@ public class PayCheck {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public Date getCreatedAt() {
@@ -97,6 +109,7 @@ public class PayCheck {
     public String toString() {
         return "PayCheck{" +
                 "id=" + id +
+                ", userId=" + userId +
                 ", createdAt=" + createdAt +
                 ", name='" + name + '\'' +
                 ", additionalInfo='" + additionalInfo + '\'' +

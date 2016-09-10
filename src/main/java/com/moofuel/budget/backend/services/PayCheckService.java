@@ -6,8 +6,11 @@ import com.moofuel.budget.backend.repositories.PayCheckRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
+import java.util.List;
+
 /**
- * Created by MoOFueL on 07.07.2016.
+ * Author is D.Ivanov, created on 07.07.2016.
  */
 @Service
 public class PayCheckService {
@@ -18,16 +21,21 @@ public class PayCheckService {
     @Autowired
     private FileService fileService;
 
-    public PayCheck findById(Integer userId) {
-        return payCheckRepository.findById(userId);
+    @Autowired
+    private UserService userService;
+
+    public List<PayCheck> findByUserId(Integer userId) {
+        return payCheckRepository.findByUserId(userId);
     }
 
-    public PayCheck createNewPaycheck(PayCheck payCheck) {
+    public PayCheck createNewPaycheck(Integer userId, PayCheck payCheck) {
+
         if (payCheck.getId() != null) {
             throw new CantCreateEntityException("If you want to create entity than you mustn't specify ID field!");
         }
+        payCheck.setUserId(userId);
         if (payCheck.getImages() != null && !payCheck.getImages().isEmpty()) {
-            fileService.createNewFiles(payCheck.getImages());
+            payCheck.setImages(new HashSet<>(fileService.createNewFiles(payCheck.getImages())));
         }
         return payCheckRepository.save(payCheck);
     }

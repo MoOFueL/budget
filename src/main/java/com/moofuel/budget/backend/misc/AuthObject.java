@@ -3,7 +3,7 @@ package com.moofuel.budget.backend.misc;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
- * Created by MoOFueL on 14.07.2016.
+ * Author is D.Ivanov, created on 14.07.2016.
  */
 public class AuthObject {
 
